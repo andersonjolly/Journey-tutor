@@ -50,6 +50,10 @@ docker build -t journey-tutor .
 docker run --rm -p 8000:8000 -e GEMINI_API_KEY="$GEMINI_API_KEY" journey-tutor
 ```
 
+```PowerShell
+docker run --rm -p 8000:8000 -e GEMINI_API_KEY=$env:GEMINI_API_KEY journey-tutor
+```
+
 ## API usage
 
 ### `GET /health`
