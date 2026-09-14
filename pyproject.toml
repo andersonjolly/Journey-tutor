@@ -1,6 +1,6 @@
 [project]
 name = "journey-tutor"
-version = "0.1.0"
+version = "0.2.0"
 description = "AI-powered personalised learning: structured lesson plans with narration scripts"
 readme = "README.md"
 authors = [
@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-journey-tutor = "journey_tutor.main:run"
+journey-tutor = "journey_tutor.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.12.13,<0.13.0"]
