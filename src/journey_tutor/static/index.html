@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Journey Tutor</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="brand">
+        <p class="brand-mark">Journey Tutor</p>
+        <p class="lede">
+          Enter a topic, duration, and difficulty to generate a structured
+          spoken lesson — objectives, sections, and narration.
+        </p>
+      </header>
+
+      <form id="lesson-form" class="lesson-form" novalidate>
+        <label>
+          Topic
+          <input
+            id="topic"
+            name="topic"
+            type="text"
+            maxlength="200"
+            required
+            placeholder="e.g. photosynthesis"
+            autocomplete="off"
+          />
+        </label>
+        <div class="row">
+          <label>
+            Duration (minutes)
+            <input
+              id="duration"
+              name="duration"
+              type="number"
+              min="1"
+              max="120"
+              value="15"
+              required
+            />
+          </label>
+          <label>
+            Difficulty
+            <select id="difficulty" name="difficulty" required>
+              <option value="beginner" selected>Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit" id="submit-btn">Generate lesson</button>
+      </form>
+
+      <p id="status" class="status" hidden aria-live="polite"></p>
+      <p id="error" class="error" hidden role="alert"></p>
+
+      <article id="result" class="result" hidden>
+        <header class="result-header">
+          <h1 id="lesson-title"></h1>
+          <p id="lesson-meta" class="meta"></p>
+        </header>
+        <section>
+          <h2>Learning objectives</h2>
+          <ul id="objectives"></ul>
+        </section>
+        <section>
+          <h2>Sections</h2>
+          <div id="sections"></div>
+        </section>
+      </article>
+    </main>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>

@@ -17,7 +17,7 @@ class Settings(BaseSettings):
 
     gemini_api_key: str = Field(default="", description="Google Gemini API key")
     gemini_model: str = Field(
-        default="gemini-2.0-flash",
+        default="gemini-2.5-flash",
         description="Gemini model id used for lesson generation",
     )
     words_per_minute: int = Field(

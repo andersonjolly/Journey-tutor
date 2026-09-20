@@ -26,6 +26,7 @@ async def create_lesson(
     body: CreateLessonRequest,
     service: Annotated[LessonService, Depends(get_lesson_service)],
 ) -> CreateLessonResponse:
+    # Provider errors propagate as LessonGenerationError → HTTP via handlers.
     plan = await service.create_lesson(
         topic=body.topic,
         duration_minutes=body.duration_minutes,
