@@ -6,6 +6,7 @@ import logging
 
 from journey_tutor.ai.protocol import LessonGenerator
 from journey_tutor.domain.models import Difficulty, LessonPlan, estimate_word_budget
+from journey_tutor.domain.validation import validate_lesson_plan
 
 logger = logging.getLogger(__name__)
 
@@ -40,7 +41,14 @@ class LessonService:
             difficulty,
             word_budget,
         )
-        return await self._generator.generate(
+        plan = await self._generator.generate(
+            topic=topic,
+            duration_minutes=duration_minutes,
+            difficulty=difficulty,
+            word_budget=word_budget,
+        )
+        return validate_lesson_plan(
+            plan,
             topic=topic,
             duration_minutes=duration_minutes,
             difficulty=difficulty,
